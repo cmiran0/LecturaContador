@@ -11,6 +11,7 @@ public class Lectura implements Serializable {
     private Long id_lectura;
     final private LocalDateTime fecha;
     private int valor_lectura;
+    private boolean facturada;
 
     @ManyToOne(targetEntity = Contador.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ref_id_contador")
@@ -46,5 +47,13 @@ public class Lectura implements Serializable {
 
     public void setContador(Contador contador) {
         this.contador = contador;
+    }
+
+    public boolean isFacturada() {
+        return facturada;
+    }
+
+    public void setFacturada(boolean facturada) {
+        this.facturada = facturada;
     }
 }
